@@ -1,128 +1,101 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background: url('https://images.unsplash.com/photo-1606787366850-de6330128bfc') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
- 
-  .container {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 35px 25px;
-    border-radius: 20px;
-    max-width: 420px;
-    width: 90%;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    text-align: center;
-  }
-  
-  
-  h1 {
-    font-size: 1.9em;
-    margin-bottom: 25px;
-    color: #2c3e50;
-  }
-  
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-weight: 600;
-    font-size: 0.95em;
-    text-align: left;
-    color: #34495e;
-  }
-  
-  input {
-    padding: 10px;
-    border: 1.5px solid #ccc;
-    border-radius: 10px;
-    font-size: 1em;
-    transition: border 0.3s;
-  }
-  
-  input:focus {
-    border-color: #3498db;
-    outline: none;
-  }
-  
-  
-  button {
-    padding: 10px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1em;
-    transition: 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #2980b9;
-  }
-  
-  
-  #lista-itens {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  #lista-itens li {
-    padding: 10px;
-    background-color: #ecf0f1;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  #lista-itens li:hover {
-    background-color: #d0e3f1;
-  }
-  
-  
-  .riscado {
-    text-decoration: line-through;
-    color: #999;
-  }
-  
-  
-  .limpar {
-    background-color: #e74c3c;
-  }
-  
-  .limpar:hover {
-    background-color: #c0392b;
-  }
-  
-  
-  @media (max-width: 480px) {
-    .container {
-      padding: 25px 15px;
-    }
-  
-    h1 {
-      font-size: 1.6em;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: url('https://images.unsplash.com/photo-1606788075760-facb9a46df7b') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+form input {
+  padding: 10px;
+  margin: 0.5rem 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 45%;
+}
+
+form button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #27ae60;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #219150;
+}
+
+ul {
+  list-style: none;
+  margin-top: 1rem;
+  text-align: left;
+  padding: 0;
+}
+
+ul li {
+  background-color: #ecf0f1;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+ul li.comprado {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.botao-limpar {
+  margin-top: 1rem;
+  padding: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botao-limpar:hover {
+  background-color: #c0392b;
+}
+
+@media (max-width: 500px) {
+  form input {
+    width: 100%;
+    margin: 0.25rem 0;
   }
 
+  form button {
+    width: 100%;
+  }
+}
