@@ -1,39 +1,32 @@
-const form = document.getElementById('form');
-const produtoInput = document.getElementById('produto');
-const quantidadeInput = document.getElementById('quantidade');
-const listaItens = document.getElementById('lista-itens');
-const limparBtn = document.getElementById('limpar-lista');
+document.addEventListener("DOMContentLoaded", function () {
+  const formulario = document.getElementById("formulario");
+  const lista = document.getElementById("lista-itens");
+  const botaoLimpar = document.getElementById("limpar-lista");
 
+  formulario.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-form.addEventListener('submit', function (event) {
-  event.preventDefault(); 
+    const produto = document.getElementById("produto").value.trim();
+    const quantidade = document.getElementById("quantidade").value.trim();
 
-  const produto = produtoInput.value.trim();
-  const quantidade = parseInt(quantidadeInput.value);
+    if (produto === "" || quantidade === "" || quantidade <= 0) {
+      alert("Preencha os campos corretamente!");
+      return;
+    }
 
+    const item = document.createElement("li");
+    item.textContent = `${produto} - ${quantidade}`;
+    
+    item.addEventListener("click", () => {
+      item.classList.toggle("comprado");
+    });
 
-  if (produto === '' || isNaN(quantidade) || quantidade < 1) {
-    alert('Por favor, preencha o produto e uma quantidade válida.');
-    return;
-  }
+    lista.appendChild(item);
 
-  const li = document.createElement('li');
-  li.textContent = `${produto} (${quantidade})`;
-
-  
-  li.addEventListener('click', function () {
-    li.classList.toggle('riscado');
+    formulario.reset();
   });
 
-  listaItens.appendChild(li);
-
-  
-  produtoInput.value = '';
-  quantidadeInput.value = '1';
-  produtoInput.focus();
-});
-
-
-limparBtn.addEventListener('click', function () {
-  listaItens.innerHTML = '';
+  botaoLimpar.addEventListener("click", function () {
+    lista.innerHTML = "";
+  });
 });
