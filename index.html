@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lista de Compras Interativa</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras Interativa</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="container">
-    <h1>Lista de Compras Interativa</h1>
-    <form id="formulario">
-      <input type="text" id="produto" placeholder="Nome do produto" required />
-      <input type="number" id="quantidade" placeholder="Quantidade" min="1" required />
-      <button type="submit">Adicionar Item</button>
-    </form>
+    <div class="container">
+        <h1>Lista de Compras Interativa</h1>
+        <form id="shopping-form">
+            <input type="text" id="product-name" placeholder="Nome do produto" required>
+            <input type="number" id="product-quantity" placeholder="Quantidade" required min="1">
+            <button type="submit">Adicionar Item</button>
+        </form>
+        <ul id="shopping-list"></ul>
+        <button id="clear-list">Limpar Lista</button>
+    </div>
 
-    <ul id="lista-itens"></ul>
-
-    <button id="limpar-lista" class="botao-limpar">Limpar Lista</button>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
