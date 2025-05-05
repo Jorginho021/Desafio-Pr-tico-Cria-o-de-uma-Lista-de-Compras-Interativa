@@ -1,32 +1,41 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const formulario = document.getElementById("formulario");
-  const lista = document.getElementById("lista-itens");
-  const botaoLimpar = document.getElementById("limpar-lista");
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('shopping-form');
+    const productNameInput = document.getElementById('product-name');
+    const productQuantityInput = document.getElementById('product-quantity');
+    const shoppingList = document.getElementById('shopping-list');
+    const clearListButton = document.getElementById('clear-list');
 
-  formulario.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const produto = document.getElementById("produto").value.trim();
-    const quantidade = document.getElementById("quantidade").value.trim();
-
-    if (produto === "" || quantidade === "" || quantidade <= 0) {
-      alert("Preencha os campos corretamente!");
-      return;
+   
+    function addItemToList(name, quantity) {
+        const li = document.createElement('li');
+        li.textContent = `${name} (${quantity})`;
+        li.addEventListener('click', () => {
+            li.classList.toggle('completed');
+        });
+        shoppingList.appendChild(li);
     }
 
-    const item = document.createElement("li");
-    item.textContent = `${produto} - ${quantidade}`;
+  
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const productName = productNameInput.value.trim();
+        const productQuantity = parseInt(productQuantityInput.value, 10);
+
+        if (productName === '' || isNaN(productQuantity) || productQuantity <= 0) {
+            alert('Por favor, insira um nome válido e uma quantidade maior que zero.');
+            return;
+        }
+
+        addItemToList(productName, productQuantity);
+
     
-    item.addEventListener("click", () => {
-      item.classList.toggle("comprado");
+        productNameInput.value = '';
+        productQuantityInput.value = '';
     });
 
-    lista.appendChild(item);
-
-    formulario.reset();
-  });
-
-  botaoLimpar.addEventListener("click", function () {
-    lista.innerHTML = "";
-  });
+   
+    clearListButton.addEventListener('click', () => {
+        shoppingList.innerHTML = '';
+    });
 });
