@@ -1,1 +1,0 @@
-# Desafio-Pr-tico-Cria-o-de-uma-Lista-de-Compras-Interativa
